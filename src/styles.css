@@ -658,19 +658,21 @@ button {
   }
 
   .detail-view {
-    grid-template-rows: auto auto auto auto 1fr;
+    grid-template-rows: auto auto auto 1fr auto;
+  }
+
+  .detail-view .content-area {
+    grid-row: 4;
   }
 
   .detail-view .tab-bar {
-    margin: 0 0 14px;
-    border-left: 0;
+    grid-row: 5;
+    margin: 0;
+    border-top: 1px solid var(--line);
     border-right: 0;
+    border-bottom: 0;
+    border-left: 0;
     border-radius: 0;
-  }
-
-  .detail-view .tab-bar button {
-    min-height: 60px;
-    font-size: 12px;
   }
 }
 
