@@ -31,10 +31,15 @@ jobs:
         run: npm run build
       - name: Setup Pages
         uses: actions/configure-pages@v5
+      - name: Prepare static artifact
+        run: |
+          mkdir pages-artifact
+          cp index.html pages-artifact/
+          cp -r assets pages-artifact/assets
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: pages-artifact
   deploy:
     environment:
       name: github-pages
