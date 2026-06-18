@@ -659,6 +659,8 @@ button {
 
   .detail-view {
     grid-template-rows: auto auto auto 1fr auto;
+    height: 100svh;
+    min-height: 0;
   }
 
   .detail-view .content-area {
