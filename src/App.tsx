@@ -15,7 +15,7 @@ import {
   UserRound,
   Wrench,
 } from "lucide-react";
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 
 type TabKey = "summary" | "meter" | "devices" | "payments" | "sales";
 type ViewMode = "search" | "detail";
@@ -209,14 +209,6 @@ function App() {
   const [selectedCode, setSelectedCode] = useState(customers[0].code);
   const [view, setView] = useState<ViewMode>("search");
 
-  useEffect(() => {
-    const update = () => {
-      document.documentElement.style.setProperty("--app-height", `${window.innerHeight}px`);
-    };
-    update();
-    window.addEventListener("resize", update);
-    return () => window.removeEventListener("resize", update);
-  }, []);
 
   const customer = useMemo(
     () => customers.find((item) => item.code === selectedCode) ?? customers[0],
