@@ -55,6 +55,7 @@ button {
 }
 
 .search-view,
+.supplies-view,
 .detail-view {
   width: 100%;
   height: 100vh;
@@ -66,6 +67,10 @@ button {
 
 .search-view {
   grid-template-rows: auto auto 1fr;
+}
+
+.supplies-view {
+  grid-template-rows: auto auto auto 1fr;
 }
 
 .detail-view {
@@ -245,13 +250,19 @@ button {
 }
 
 .result-main em {
-  color: var(--brand);
-  background: #fff1f1;
+  color: var(--muted);
+  background: var(--soft);
   border-radius: 999px;
   padding: 4px 8px;
   font-size: 11px;
   font-style: normal;
   font-weight: 800;
+  white-space: nowrap;
+}
+
+.result-main em.multi {
+  color: var(--brand);
+  background: #fff1f1;
 }
 
 .result-meta {
@@ -280,7 +291,7 @@ button {
 
 .result-detail-grid {
   display: grid;
-  grid-template-columns: 136px minmax(220px, 1fr) 82px 150px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
   gap: 12px;
   align-items: center;
   color: var(--muted);
@@ -349,6 +360,157 @@ button {
   color: var(--muted);
   background: var(--soft);
   padding: 7px 10px;
+}
+
+.supply-hero .status-pill {
+  gap: 6px;
+}
+
+.customer-contact {
+  margin: 0 20px 4px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.customer-contact span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.customer-contact svg {
+  color: var(--brand);
+  flex: 0 0 auto;
+}
+
+.supplies-area {
+  min-height: 0;
+  overflow: auto;
+  padding: 16px 20px 24px;
+  width: min(100%, 920px);
+  justify-self: center;
+}
+
+.supply-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.supply-card {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--panel);
+  display: grid;
+  align-content: start;
+  gap: 10px;
+  padding: 16px;
+  color: var(--ink);
+  text-align: left;
+  transition: border-color 140ms ease, background 140ms ease, transform 140ms ease;
+}
+
+.supply-card:hover {
+  border-color: rgba(215, 25, 32, 0.28);
+  transform: translateY(-1px);
+}
+
+.supply-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.supply-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: #fff1f1;
+  color: var(--brand);
+  flex: 0 0 auto;
+}
+
+.supply-title {
+  min-width: 0;
+  flex: 1;
+  display: grid;
+  gap: 2px;
+}
+
+.supply-title strong {
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+.supply-title small {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.supply-status {
+  flex: 0 0 auto;
+  border-radius: 999px;
+  padding: 5px 10px;
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--success);
+  background: #e8f7f4;
+  white-space: nowrap;
+}
+
+.supply-status.off {
+  color: var(--muted);
+  background: var(--soft);
+}
+
+.supply-address {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.supply-address svg {
+  color: var(--brand);
+  flex: 0 0 auto;
+}
+
+.supply-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.supply-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.supply-meta svg {
+  color: var(--brand);
+  flex: 0 0 auto;
+}
+
+.supply-meta .unpaid {
+  color: var(--brand-dark);
+}
+
+.supply-meta .unpaid svg {
+  color: var(--brand-dark);
 }
 
 .sync-strip {
@@ -643,9 +805,15 @@ button {
     min-height: 100vh;
   }
 
-  .search-results {
+  .search-results,
+  .supplies-area {
     padding: 16px;
     width: 100%;
+  }
+
+  .customer-contact {
+    margin-left: 16px;
+    margin-right: 16px;
   }
 
   .result-grid {
